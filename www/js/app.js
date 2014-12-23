@@ -39,7 +39,7 @@
                   "cancelled: " + result.cancelled + "\n";
 
           },function (error) { 
-              $scope.ons.notification.alert({message: "Scanning failed: ", error});
+              $scope.ons.notification.alert({message: "Scanning failed: "+error});
           });
       };
 
