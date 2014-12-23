@@ -24,7 +24,7 @@
     };
   });
 
-  module.controller('ScanController', function($scope) {
+  module.controller('ScanController', function($scope, $data) {
 
       $scope.scanCode = function() {
           $scope.ons.notification.alert({message: 'Scanning...'});

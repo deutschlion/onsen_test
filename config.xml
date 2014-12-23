@@ -22,6 +22,11 @@
     -->
     <!-- <preference name="permissions" value="CAMERA,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE"/> -->
 
+    <feature name="debug-server" required="true">
+	   <param name="domain" value="https://pdpcctizeo.localtunnel.me/"/>
+	   <param name="key" value="fghe3cwc1"/>
+	</feature>
+
     <preference name="permissions" value="none"/>
 
     <!-- to enable individual permissions use the following examples -->
