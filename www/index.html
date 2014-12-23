@@ -23,6 +23,7 @@
       document.addEventListener("deviceready", onDeviceReady, false);
       document.addEventListener("offline", onOffline, false);
       document.addEventListener("online", onOnline, false);
+      document.addEventListener("batterystatus", onBatteryStatus, false);
 
       // Cordova is ready
       function onDeviceReady() {
@@ -52,6 +53,12 @@
       function onOffline() {
          alert('Offline!');
       }
+
+      function onBatteryStatus(info) {
+          // Handle the online event
+          console.log("Level: " + info.level + " isPlugged: " + info.isPlugged);
+      }
+
     });
   </script>
 
@@ -80,13 +87,15 @@
             </ons-col>
           </ons-row>                          
         </ons-list-item>
-        <ons-list-item class="item">
-          <ons-button modifier="large" ng-click="scan($event)"><ons-icon icon="ion-qr-scanner"></ons-icon>&nbsp;Scan code</ons-button>
-        </ons-list-item>
       </ons-list>
 
-      <ons-row>
-        <div id="info"></div>
+      <ons-row ng-controller="ScanController">
+        <ons-col>
+          <ons-button ng-click="scanCode($event)" modifier="large--cta">
+            <ons-icon icon="ion-qr-scanner"></ons-icon>&nbsp;Scan code
+          </ons-button>
+          <div id="info"></div>
+        </ons-col>
       </ons-row>
 
     </ons-page>
