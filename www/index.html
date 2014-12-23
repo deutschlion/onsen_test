@@ -8,7 +8,7 @@
   <title>Onsen demo</title>  
   
   <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
-  <link rel="stylesheet" href="styles/onsen-css-components-sunshine-theme.css"> 
+  <link rel="stylesheet" href="styles/shadows/onsen-css-components.min.css"> 
   <link rel="stylesheet" href="styles/app.css"/> 
 
   <script src="lib/onsen/js/angular/angular.js"></script>    
@@ -80,7 +80,15 @@
             </ons-col>
           </ons-row>                          
         </ons-list-item>
+        <ons-list-item>
+          <ons-button modifier="large" ng-click="scan()"><ons-icon icon="ion-qr-scanner"></ons-icon>&nbsp;Scan code</ons-button>
+        </ons-list-item>
       </ons-list>
+
+      <ons-row>
+        <div id="info"></div>
+      </ons-row>
+
     </ons-page>
   </ons-navigator>
 
