@@ -23,11 +23,10 @@
       $scope.ons.navigator.pushPage('detail.html', {title : selectedItem.title});
     };
 
-    $scope.scan = function(index) {
-        console.log('scanning');
+    $scope.scan = function(event) {
+        alert('scanning');
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         scanner.scan( function (result) { 
-
             alert("We got a barcode\n" + 
             "Result: " + result.text + "\n" + 
             "Format: " + result.format + "\n" + 
