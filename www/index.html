@@ -91,8 +91,8 @@
 
       <ons-row ng-controller="ScanController">
         <ons-col>
-          <ons-button ng-click="scanCode($event)" modifier="large--cta">
-            <ons-icon icon="ion-qr-scanner"></ons-icon>&nbsp;Scan code
+          <ons-button ng-click="scanCode()" modifier="large--cta" style="margin-top: 10px;">
+            <ons-icon icon="ion-qr-scanner" fixed-width="true" style="color: #fefefe"></ons-icon>&nbsp;Scan code
           </ons-button>
           <div id="info"></div>
         </ons-col>

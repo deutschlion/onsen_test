@@ -26,25 +26,20 @@
 
   module.controller('ScanController', function($scope) {
 
-      $scope.scanCode = function(event) {
+      $scope.scanCode = function() {
           $scope.ons.notification.alert({message: 'Scanning...'});
           //
           var scanner = $scope.cordova.require("cordova/plugin/BarcodeScanner");
           $scope.ons.notification.alert({message: scanner});
           //
           scanner.scan( function (result) { 
-              alert("We got a barcode\n" + 
-              "Result: " + result.text + "\n" + 
-              "Format: " + result.format + "\n" + 
-              "Cancelled: " + result.cancelled);  
-
              document.getElementById("info").innerHTML = "Scanner result: \n" +
                   "text: " + result.text + "\n" +
                   "format: " + result.format + "\n" +
                   "cancelled: " + result.cancelled + "\n";
 
           },function (error) { 
-              console.log("Scanning failed: ", error); 
+              $scope.ons.notification.alert({message: "Scanning failed: ", error});
           });
       };
 
