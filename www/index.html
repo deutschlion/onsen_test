@@ -25,9 +25,32 @@
       document.addEventListener("online", onOnline, false);
       document.addEventListener("batterystatus", onBatteryStatus, false);
 
+      var scan_button = document.getElementById("scan_button");
+
+      scan_button.addEventListener("click", function(e) {
+        e.preventDefault();
+          ons.notification.alert({message: 'Scanning...'});
+          //
+          var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+          ons.notification.alert({message: scanner});
+          //
+          scanner.scan( function (result) { 
+             document.getElementById("info").innerHTML = "Scanner result: \n" +
+                  "text: " + result.text + "\n" +
+                  "format: " + result.format + "\n" +
+                  "cancelled: " + result.cancelled + "\n";
+
+          },function (error) { 
+              ons.notification.alert({message: "Scanning failed: "+error});
+          });
+        return false;
+      }, false);
+
       // Cordova is ready
       function onDeviceReady() {
-        checkConnection();
+        setTimeout(function() {
+          checkConnection();
+        }, 400);
       }
 
       function checkConnection() {
@@ -89,9 +112,9 @@
         </ons-list-item>
       </ons-list>
 
-      <ons-row ng-controller="ScanController">
+      <ons-row>
         <ons-col>
-          <ons-button ng-click="scanCode()" modifier="large--cta">
+          <ons-button id="scan_button" modifier="large--cta">
             <ons-icon icon="ion-qr-scanner" fixed-width="true" style="color: #fefefe"></ons-icon>&nbsp;Scan code
           </ons-button>
           <div id="info"></div>

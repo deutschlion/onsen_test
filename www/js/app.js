@@ -24,27 +24,6 @@
     };
   });
 
-  module.controller('ScanController', function($scope, $data) {
-
-      $scope.scanCode = function() {
-          $scope.ons.notification.alert({message: 'Scanning...'});
-          //
-          var scanner = $scope.cordova.require("cordova/plugin/BarcodeScanner");
-          $scope.ons.notification.alert({message: scanner});
-          //
-          scanner.scan( function (result) { 
-             document.getElementById("info").innerHTML = "Scanner result: \n" +
-                  "text: " + result.text + "\n" +
-                  "format: " + result.format + "\n" +
-                  "cancelled: " + result.cancelled + "\n";
-
-          },function (error) { 
-              $scope.ons.notification.alert({message: "Scanning failed: "+error});
-          });
-      };
-
-  });
-
   module.factory('$data', function() {
       var data = {};
       
